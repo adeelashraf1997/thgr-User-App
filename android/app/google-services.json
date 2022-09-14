@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "69231550837",
+    "project_id": "thgr-76477",
+    "storage_bucket": "thgr-76477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69231550837:android:0dcaa54a9a9de5179ab33c",
+        "android_client_info": {
+          "package_name": "com.thgr.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69231550837-fl6c5kpjkf95ghfgt9nslk71ndfjpdg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thgr.user",
+            "certificate_hash": "6146ce8e00e4aadca2ec231b1bd661c293340454"
+          }
+        },
+        {
+          "client_id": "69231550837-okmkqqqj2dhf696nitd5martmauaggu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVWHnnYaQJKO69uqPWjfl9NBHqqusvluo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69231550837-okmkqqqj2dhf696nitd5martmauaggu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
