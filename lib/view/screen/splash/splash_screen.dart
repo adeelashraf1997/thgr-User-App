@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sixvalley_ecommerce/helper/FirebaseCall.dart';
 import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/provider/auth_provider.dart';
 import 'package:flutter_sixvalley_ecommerce/provider/profile_provider.dart';
@@ -55,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
       }
       _firstTime = false;
     });
-
+    FirebaseCall.getAllWholeSaleRequest();
     _route();
   }
 

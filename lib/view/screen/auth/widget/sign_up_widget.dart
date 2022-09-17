@@ -62,7 +62,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           content: Text(getTranslated('first_name_field_is_required', context)),
           backgroundColor: Colors.red,
         ));
-      }else if (_lastName.isEmpty) {
+      } else if (_lastName.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(getTranslated('last_name_field_is_required', context)),
           backgroundColor: Colors.red,

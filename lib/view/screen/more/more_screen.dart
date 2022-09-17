@@ -33,6 +33,7 @@ import 'package:flutter_sixvalley_ecommerce/view/screen/wallet/wallet_screen.dar
 import 'package:flutter_sixvalley_ecommerce/view/screen/wishlist/wishlist_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../WholeSaller/PurchaseFromWholeSale.dart';
 import 'faq_screen.dart';
 
 class MoreScreen extends StatefulWidget {
@@ -222,6 +223,11 @@ class _MoreScreenState extends State<MoreScreen> {
                   TitleButton(image: Images.help_center, title: getTranslated('faq', context),
                       navigateTo: FaqScreen(title: getTranslated('faq', context),)),
 
+
+                  TitleButton(image: Images.help_center, title: 'Purchase from whole sales',
+                      navigateTo: PurchaseFromWholeSale()),
+                  ///////////////////////////////////////////////////////////////////sanwal
+
                   TitleButton(image: Images.about_us, title: getTranslated('about_us', context),
                       navigateTo: HtmlViewScreen(title: getTranslated('about_us', context),
                         url: Provider.of<SplashProvider>(context, listen: false).configModel.aboutUs,)),
@@ -305,6 +311,7 @@ class SquareButton extends StatelessWidget {
       ]),
     );
   }
+
 }
 
 class TitleButton extends StatelessWidget {
