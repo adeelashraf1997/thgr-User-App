@@ -25,6 +25,9 @@ class PurchaseFromWholeSale extends StatefulWidget {
   State<PurchaseFromWholeSale> createState() => _PurchaseFromWholeSaleState();
 }
 
+bool apprived_as_whole_rate_purchaser = false;
+//purchase price is for whole rate purchaser
+
 class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
   var height, width;
 
@@ -35,7 +38,7 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
   String clinicImageDownloadUrl = null;
   String have_tax_number = 'yes';
   String userID;
-  bool approved = false;
+
   bool requestSubmitted = false;
 
   @override
@@ -70,14 +73,15 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
                             left: 20.0, right: 20, top: 10, bottom: 10),
                         child: requestSubmitted
                             ? Text(
-                                approved
+                                apprived_as_whole_rate_purchaser
                                     ? "Your request approved!\n Now you can purchase on whole rate" //Your request has submitted Please wait patiently
                                     : "Your request is under review, please wait untill we approve it.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 18,
-                                    color:
-                                        approved ? Colors.green : Colors.black),
+                                    color: apprived_as_whole_rate_purchaser
+                                        ? Colors.green
+                                        : Colors.black),
                               )
                             : Text(
                                 'Become a premium user and purchase on whole sale rate',
@@ -423,7 +427,7 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
         _registrationNumberController.text =
             purchaser.clinicRegisterationNumber;
         _clinicTaxNoController.text = purchaser.clinicTaxNumber;
-        approved = false;
+        apprived_as_whole_rate_purchaser = false;
         requestSubmitted = true;
       });
     } else {
