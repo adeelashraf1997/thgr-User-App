@@ -43,22 +43,28 @@ import 'provider/banner_provider.dart';
 import 'provider/flash_deal_provider.dart';
 import 'provider/product_provider.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await di.init();
   final NotificationAppLaunchDetails notificationAppLaunchDetails =
-  await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
+      await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
   int _orderID;
   if (notificationAppLaunchDetails?.didNotificationLaunchApp ?? false) {
-    _orderID = (notificationAppLaunchDetails.payload != null && notificationAppLaunchDetails.payload.isNotEmpty)
-        ? int.parse(notificationAppLaunchDetails.payload) : null;
+    _orderID = (notificationAppLaunchDetails.payload != null &&
+            notificationAppLaunchDetails.payload.isNotEmpty)
+        ? int.parse(notificationAppLaunchDetails.payload)
+        : null;
   }
-  final RemoteMessage remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
+  final RemoteMessage remoteMessage =
+      await FirebaseMessaging.instance.getInitialMessage();
   if (remoteMessage != null) {
-    _orderID = remoteMessage.notification.titleLocKey != null ? int.parse(remoteMessage.notification.titleLocKey) : null;
+    _orderID = remoteMessage.notification.titleLocKey != null
+        ? int.parse(remoteMessage.notification.titleLocKey)
+        : null;
   }
   print('========-notification-----$_orderID----===========');
 
@@ -68,14 +74,17 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => di.sl<CategoryProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<HomeCategoryProductProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<HomeCategoryProductProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<TopSellerProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<FlashDealProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<FeaturedDealProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<FeaturedDealProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<BrandProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<ProductProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<BannerProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<ProductDetailsProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<ProductDetailsProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<OnBoardingProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<AuthProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<SearchProvider>()),
@@ -83,18 +92,24 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (context) => di.sl<CouponProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<ChatProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<OrderProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<NotificationProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<NotificationProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<ProfileProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<WishListProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<SplashProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<CartProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<SupportTicketProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<LocalizationProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<SupportTicketProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<LocalizationProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<ThemeProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<GoogleSignInProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<FacebookLoginProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<GoogleSignInProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<FacebookLoginProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<LocationProvider>()),
-      ChangeNotifierProvider(create: (context) => di.sl<WalletTransactionProvider>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<WalletTransactionProvider>()),
     ],
     child: MyApp(orderId: _orderID),
   ));
@@ -102,6 +117,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   final int orderId;
+
   MyApp({@required this.orderId});
 
   static final navigatorKey = new GlobalKey<NavigatorState>();
@@ -126,8 +142,13 @@ class MyApp extends StatelessWidget {
         FallbackLocalizationDelegate()
       ],
       supportedLocales: _locals,
-      home: orderId == null ? SplashScreen() : OrderDetailsScreen(orderModel: null,
-        orderId: orderId, orderType: 'default_type',isNotification: true),
+      home: orderId == null
+          ? SplashScreen()
+          : OrderDetailsScreen(
+              orderModel: null,
+              orderId: orderId,
+              orderType: 'default_type',
+              isNotification: true),
     );
   }
 }

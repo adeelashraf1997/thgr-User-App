@@ -35,7 +35,7 @@ class ProductWidget extends StatelessWidget {
             ));
       },
       child: Container(
-        height: MediaQuery.of(context).size.width / 1.5,
+        height: MediaQuery.of(context).size.width / 1.45,
         margin: EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -75,7 +75,6 @@ class ProductWidget extends StatelessWidget {
                 ),
               ),
             ),
-
             // Product Details
             Padding(
               padding: EdgeInsets.only(
@@ -134,7 +133,10 @@ class ProductWidget extends StatelessWidget {
 
                       Text(
                         PriceConverter.convertPrice(
-                            context, productModel.unitPrice,
+                            context,
+                            apprived_as_whole_rate_purchaser
+                                ? productModel.purchasePrice
+                                : productModel.unitPrice,
                             discountType: productModel.discountType,
                             discount: productModel.discount),
                         style: titilliumSemiBold.copyWith(
@@ -167,7 +169,9 @@ class ProductWidget extends StatelessWidget {
                       child: Text(
                         PriceConverter.percentageCalculation(
                             context,
-                            productModel.unitPrice,
+                            apprived_as_whole_rate_purchaser
+                                ? productModel.purchasePrice
+                                : productModel.unitPrice,
                             productModel.discount,
                             productModel.discountType),
                         style: robotoRegular.copyWith(

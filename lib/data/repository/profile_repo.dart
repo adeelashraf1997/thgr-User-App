@@ -33,9 +33,13 @@ class ProfileRepo {
 
   Future<ApiResponse> getUserInfo() async {
     try {
+      print('user detailsddddddddd');
       final response = await dioClient.get(AppConstants.CUSTOMER_URI);
+
+      print('user details...  $response');
       return ApiResponse.withSuccess(response);
     } catch (e) {
+      print('user details...ffff  $e');
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
     }
   }

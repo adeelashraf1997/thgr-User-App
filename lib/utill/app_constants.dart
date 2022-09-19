@@ -6,6 +6,7 @@ class AppConstants {
   //https://6valley.6amtech.com
   //https://thgr.app
   //https://multi.delvriadmin.com
+  //static const String BASE_URL = 'https://app.delvriadmin.com';
   static const String BASE_URL = 'https://app.delvriadmin.com';
   static const String USER_ID = 'userId';
   static const String NAME = 'name';

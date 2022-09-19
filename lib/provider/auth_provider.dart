@@ -142,10 +142,12 @@ class AuthProvider with ChangeNotifier {
     ApiResponse apiResponse = await authRepo.login(loginBody);
     _isLoading = false;
     if (apiResponse.response != null && apiResponse.response.statusCode == 200) {
+      print('akkkkkkkkaaaaa');
       Map map = apiResponse.response.data;
       String temporaryToken = '';
       String token = '';
       String message = '';
+      print('akkkkkkkkaaaaa1111  $map');
       // String token = map["token"];
 
       try{

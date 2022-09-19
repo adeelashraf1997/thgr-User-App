@@ -101,7 +101,8 @@ class _SignInWidgetState extends State<SignInWidget> {
         }
       }
       else{
-        await Provider.of<ProfileProvider>(context, listen: false).getUserInfo(context);
+        //await
+        Provider.of<ProfileProvider>(context, listen: false).getUserInfo(context);
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => DashBoardScreen()), (route) => false);
       }
     } else {
