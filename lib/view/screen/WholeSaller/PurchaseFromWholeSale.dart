@@ -39,7 +39,7 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
   TextEditingController _clinicTaxNoController = TextEditingController();
   String clinicImageDownloadUrl = null;
   String have_tax_number = 'yes';
-  String userID;
+  String userID = 'k';
 
   bool requestSubmitted = false;
 
@@ -370,11 +370,11 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
       final dir = await getTemporaryDirectory();
       final targetPath = dir.absolute.path +
           "/${DateTime.now().millisecondsSinceEpoch.toString()}.jpg";
-      setState(() {
-        //imageFile = image.path;
-        //alldata.add(imageFile);
-        //state = AppState.picked;
-      });
+      // setState(() {
+      //   //imageFile = image.path;
+      //   //alldata.add(imageFile);
+      //   //state = AppState.picked;
+      // });
       print('image1    ${image.path}');
       uploadImageToFirebase(image.path); //image.path
     }
@@ -393,11 +393,9 @@ class _PurchaseFromWholeSaleState extends State<PurchaseFromWholeSale> {
             });
   }
 
-  void getUserID() async
-  {
-
+  void getUserID() async {
     //print('kkkkkkkkkkkkkkkkkkkkkkkk    ${Provider.of<ProfileProvider>(context, listen: false).userInfoModel.id} ');
-    userID=Provider.of<ProfileProvider>(context, listen: false).userInfoModel.name;
+    //userID=Provider.of<ProfileProvider>(context, listen: false).userInfoModel.name;
     //userID = Provider.of<ProfileProvider>(context, listen: false).profileRepo.dioClient.sharedPreferences.get(AppConstants.USER_ID);
     print('user idlllllll    $userID');
     setState(() {

@@ -22,6 +22,7 @@ class FirebaseCall {
       url = await ref.getDownloadURL();
       print('image uploading completed...${url}');
     }).catchError((onError) {
+      print('image uploading error...${onError.toString()}');
       print(onError);
     });
     return url;
